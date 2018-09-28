@@ -1,25 +1,25 @@
-#Technologies utilisés
-##Documentation
+# Technologies utilisés
+## Documentation
 * MCD : MOCODO
 * Maquettes : Balsamiq
 
-##Création
+## Création
 * Base de données : MariaDB
 * Back-end : PHP 7.2 (Framework : Laravel)
 * Front-end : HTML5 / CSS3 / Bootstrap
 * Outil de versionning : Git
 
-##Présentation
+## Présentation
 * Projection : PowerPoint
 
-#Liste des taches
-##Mise en place
+# Liste des taches
+## Mise en place
 - Installation du seveur web correspondant au projet
 - Installation de Laravel
 - Création de la BDD suivant le pattern du MCD
 - Mise en ligne du projet sur Github
 
-##Création
+## Création
 - Ajout des models utilisateur et parking
 - Ajout d'une fonction envoi de mail
 - Création d'un formulaire d'inscription 
@@ -48,27 +48,27 @@
 - Création de la page paramètre de l'utilisateur permettant la modification du mot de passe
 
 
-#Représentation graphique
-##Arborescence web
+# Représentation graphique
+## Arborescence web
 ![ArchiWeb](Images/siteMap.png)
-##Modèle conceptuel de données
+## Modèle conceptuel de données
 ![MCD](Images/Parkings.svg)
-##MCD 2
+## MCD 2
 ![MCD](Images/Utilisateurs.svg)
-##Maquettes des pages
-###Inscription 
+## Maquettes des pages
+### Inscription 
 ![Inscription](Images/balsamiq/Inscription.png)
-###Connexion 
+### Connexion 
 ![Connexion](Images/balsamiq/Connexion.png)
-###Acceuil (Réservation) 
+### Acceuil (Réservation) 
 ![Acceuil (Réservation)](Images/balsamiq/Acceuil1.png)
-###Acceuil (Attente) 
+### Acceuil (Attente) 
 ![Acceuil (Attente)](Images/balsamiq/Acceuil2.png)
-###Acceuil (Place) 
+### Acceuil (Place) 
 ![Acceuil (Place)](Images/balsamiq/Acceuil3.png)
-###Administration 
+### Administration 
 ![Administration](Images/balsamiq/Administration.png)
-###Administration Users 
+### Administration Users 
 ![Administration Users](Images/balsamiq/Admin1.png)
-###Administration Places 
+### Administration Places 
 ![Administration Places](Images/balsamiq/Admin2.png)
