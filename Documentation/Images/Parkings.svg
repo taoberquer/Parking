@@ -2,61 +2,57 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
 "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg width="346" height="170" view_box="0 0 346 170"
+<svg width="448" height="136" view_box="0 0 448 136"
 xmlns="http://www.w3.org/2000/svg"
-xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Wed, 26 Sep 2018 05:40:39</desc>
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Thu, 27 Sep 2018 08:16:43</desc>
 
-<rect id="frame" x="0" y="0" width="346" height="170" fill="#f5f5f5" stroke="none" stroke-width="0"/>
+<rect id="frame" x="0" y="0" width="448" height="136" fill="#ffffbf" stroke="none" stroke-width="0"/>
 
-<!-- Association RESERVER -->
-<line x1="60" y1="85" x2="183" y2="85" stroke="#bf812d" stroke-width="2"/>
-<text x="116" y="102.0" fill="#01665e" font-family="Verdana" font-size="12">0,N</text>
-<line x1="296" y1="85" x2="183" y2="85" stroke="#bf812d" stroke-width="2"/>
-<text x="228" y="102.0" fill="#01665e" font-family="Verdana" font-size="12">0,N</text>
-<g id="association-RESERVER">
-	<path d="M 209 51 a 14 14 90 0 1 14 14 V 76 h -80 V 65 a 14 14 90 0 1 14 -14" fill="#dfc27d" stroke="#dfc27d" stroke-width="0"/>
-	<path d="M 223 76.0 v 29 a 14 14 90 0 1 -14 14 H 157 a 14 14 90 0 1 -14 -14 V 76.0 H 80" fill="#f6e8c3" stroke="#f6e8c3" stroke-width="0"/>
-	<rect x="143" y="51" width="80" height="68" fill="none" rx="14" stroke="#bf812d" stroke-width="2"/>
-	<line x1="143" y1="76" x2="223" y2="76" stroke="#bf812d" stroke-width="1"/>
-	<text x="150" y="68.7" fill="#000000" font-family="Verdana" font-size="12">RESERVER</text>
-	<text x="150" y="93.8" fill="#000000" font-family="Verdana" font-size="12">enAttente</text>
-	<text x="150" y="110.8" fill="#000000" font-family="Verdana" font-size="12">numPlace</text>
+<!-- Association Assigner -->
+<line x1="79" y1="68" x2="231" y2="68" stroke="#f46d43" stroke-width="2"/>
+<text x="154" y="85.0" fill="#3288bd" font-family="Verdana" font-size="12">0,N</text>
+<line x1="376" y1="68" x2="231" y2="68" stroke="#f46d43" stroke-width="2"/>
+<text x="286" y="85.0" fill="#3288bd" font-family="Verdana" font-size="12">0,N</text>
+<g id="association-Assigner">
+	<path d="M 267 26 a 14 14 90 0 1 14 14 V 51 h -100 V 40 a 14 14 90 0 1 14 -14" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+	<path d="M 281 51.0 v 45 a 14 14 90 0 1 -14 14 H 195 a 14 14 90 0 1 -14 -14 V 51.0 H 100" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+	<rect x="181" y="26" width="100" height="84" fill="none" rx="14" stroke="#f46d43" stroke-width="2"/>
+	<line x1="181" y1="51" x2="281" y2="51" stroke="#f46d43" stroke-width="1"/>
+	<text x="205" y="43.7" fill="#000000" font-family="Verdana" font-size="12">Assigner</text>
+	<text x="188" y="68.8" fill="#000000" font-family="Verdana" font-size="12">status</text>
+	<text x="188" y="85.8" fill="#000000" font-family="Verdana" font-size="12">début</text>
+	<text x="188" y="102.8" fill="#000000" font-family="Verdana" font-size="12">numero_place</text>
 </g>
 
-<!-- Entity PARKINGS -->
-<g id="entity-PARKINGS">
-	<g id="frame-PARKINGS">
-		<rect x="255" y="17" width="82" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0"/>
-		<rect x="255" y="42.0" width="82" height="111" fill="#c7eae5" stroke="#c7eae5" stroke-width="0"/>
-		<rect x="255" y="17" width="82" height="136" fill="none" stroke="#35978f" stroke-width="2"/>
-		<line x1="255" y1="42" x2="337" y2="42" stroke="#35978f" stroke-width="1"/>
+<!-- Entity Utilisateurs -->
+<g id="entity-Utilisateurs">
+	<g id="frame-Utilisateurs">
+		<rect x="9" y="9" width="140" height="25" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<rect x="9" y="34.0" width="140" height="93" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="9" y="9" width="140" height="118" fill="none" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="9" y1="34" x2="149" y2="34" stroke="#66c2a5" stroke-width="1"/>
 	</g>
-	<text x="263" y="34.7" fill="#000000" font-family="Verdana" font-size="12">PARKINGS</text>
-	<text x="260" y="59.7" fill="#000000" font-family="Verdana" font-size="12">idP</text>
-	<line x1="260" y1="62" x2="279" y2="62" stroke="#000000" stroke-width="1"/>
-	<text x="260" y="76.7" fill="#000000" font-family="Verdana" font-size="12">nomP</text>
-	<text x="260" y="93.8" fill="#000000" font-family="Verdana" font-size="12">nbPlaces</text>
-	<text x="260" y="110.8" fill="#000000" font-family="Verdana" font-size="12">adresseP</text>
-	<text x="260" y="127.8" fill="#000000" font-family="Verdana" font-size="12">VilleP</text>
-	<text x="260" y="144.8" fill="#000000" font-family="Verdana" font-size="12">codePostalP</text>
+	<text x="44" y="26.7" fill="#000000" font-family="Verdana" font-size="12">Utilisateurs</text>
+	<text x="14" y="51.7" fill="#000000" font-family="Verdana" font-size="12">identifiant_utilisateur</text>
+	<line x1="14" y1="54" x2="143" y2="54" stroke="#000000" stroke-width="1"/>
+	<text x="14" y="68.8" fill="#000000" font-family="Verdana" font-size="12">nom</text>
+	<text x="14" y="85.8" fill="#000000" font-family="Verdana" font-size="12">email</text>
+	<text x="14" y="102.8" fill="#000000" font-family="Verdana" font-size="12">mot_de_passe</text>
+	<text x="14" y="119.8" fill="#000000" font-family="Verdana" font-size="12">inscription</text>
 </g>
 
-<!-- Entity UTILISATEURS -->
-<g id="entity-UTILISATEURS">
-	<g id="frame-UTILISATEURS">
-		<rect x="9" y="9" width="102" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0"/>
-		<rect x="9" y="34.0" width="102" height="127" fill="#c7eae5" stroke="#c7eae5" stroke-width="0"/>
-		<rect x="9" y="9" width="102" height="152" fill="none" stroke="#35978f" stroke-width="2"/>
-		<line x1="9" y1="34" x2="111" y2="34" stroke="#35978f" stroke-width="1"/>
+<!-- Entity Parking -->
+<g id="entity-Parking">
+	<g id="frame-Parking">
+		<rect x="313" y="26" width="126" height="25" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<rect x="313" y="51.0" width="126" height="59" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="313" y="26" width="126" height="84" fill="none" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="313" y1="51" x2="439" y2="51" stroke="#66c2a5" stroke-width="1"/>
 	</g>
-	<text x="14" y="26.7" fill="#000000" font-family="Verdana" font-size="12">UTILISATEURS</text>
-	<text x="14" y="51.7" fill="#000000" font-family="Verdana" font-size="12">idU</text>
-	<line x1="14" y1="54" x2="35" y2="54" stroke="#000000" stroke-width="1"/>
-	<text x="14" y="68.7" fill="#000000" font-family="Verdana" font-size="12">nomU</text>
-	<text x="14" y="85.8" fill="#000000" font-family="Verdana" font-size="12">emailU</text>
-	<text x="14" y="102.8" fill="#000000" font-family="Verdana" font-size="12">mdpU</text>
-	<text x="14" y="119.8" fill="#000000" font-family="Verdana" font-size="12">adresseU</text>
-	<text x="14" y="136.8" fill="#000000" font-family="Verdana" font-size="12">VilleU</text>
-	<text x="14" y="153.8" fill="#000000" font-family="Verdana" font-size="12">codePostalU</text>
+	<text x="353" y="43.7" fill="#000000" font-family="Verdana" font-size="12">Parking</text>
+	<text x="318" y="68.8" fill="#000000" font-family="Verdana" font-size="12">identifiant_parking</text>
+	<line x1="318" y1="71" x2="433" y2="71" stroke="#000000" stroke-width="1"/>
+	<text x="318" y="85.8" fill="#000000" font-family="Verdana" font-size="12">nombre_place</text>
+	<text x="318" y="102.8" fill="#000000" font-family="Verdana" font-size="12">temps_utilisation</text>
 </g>
 </svg>

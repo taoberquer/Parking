@@ -1,7 +1,7 @@
 #Technologies utilisés
 ##Documentation
 * MCD : MOCODO
-* Maquettes : 
+* Maquettes : Balsamiq
 
 ##Création
 * Base de données : MariaDB
