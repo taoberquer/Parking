@@ -1,0 +1,84 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="668" height="136" view_box="0 0 668 136"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Thu, 27 Sep 2018 08:30:21</desc>
+
+<rect id="frame" x="0" y="0" width="668" height="136" fill="#ffffbf" stroke="none" stroke-width="0"/>
+
+<!-- Association Demander -->
+<line x1="345" y1="68" x2="204" y2="68" stroke="#f46d43" stroke-width="2"/>
+<text x="248" y="85.0" fill="#3288bd" font-family="Verdana" font-size="12">0,N</text>
+<line x1="71" y1="68" x2="204" y2="68" stroke="#f46d43" stroke-width="2"/>
+<text x="138" y="85.0" fill="#3288bd" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-Demander">
+	<path d="M 229 43 a 14 14 90 0 1 14 14 V 68 h -78 V 57 a 14 14 90 0 1 14 -14" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+	<path d="M 243 68.0 v 11 a 14 14 90 0 1 -14 14 H 179 a 14 14 90 0 1 -14 -14 V 68.0 H 78" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+	<rect x="165" y="43" width="78" height="50" fill="none" rx="14" stroke="#f46d43" stroke-width="2"/>
+	<line x1="165" y1="68" x2="243" y2="68" stroke="#f46d43" stroke-width="1"/>
+	<text x="172" y="60.7" fill="#000000" font-family="Verdana" font-size="12">Demander</text>
+</g>
+
+<!-- Association Attribuer -->
+<line x1="345" y1="68" x2="481" y2="68" stroke="#f46d43" stroke-width="2"/>
+<text x="420" y="85.0" fill="#3288bd" font-family="Verdana" font-size="12">0,N</text>
+<line x1="603" y1="68" x2="481" y2="68" stroke="#f46d43" stroke-width="2"/>
+<text x="520" y="85.0" fill="#3288bd" font-family="Verdana" font-size="12">0,N</text>
+<g id="association-Attribuer">
+	<path d="M 501 43 a 14 14 90 0 1 14 14 V 68 h -68 V 57 a 14 14 90 0 1 14 -14" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+	<path d="M 515 68.0 v 11 a 14 14 90 0 1 -14 14 H 461 a 14 14 90 0 1 -14 -14 V 68.0 H 68" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+	<rect x="447" y="43" width="68" height="50" fill="none" rx="14" stroke="#f46d43" stroke-width="2"/>
+	<line x1="447" y1="68" x2="515" y2="68" stroke="#f46d43" stroke-width="1"/>
+	<text x="454" y="60.7" fill="#000000" font-family="Verdana" font-size="12">Attribuer</text>
+	<text x="454" y="85.8" fill="#000000" font-family="Verdana" font-size="12">début</text>
+</g>
+
+<!-- Entity Attente -->
+<g id="entity-Attente">
+	<g id="frame-Attente">
+		<rect x="9" y="26" width="124" height="25" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<rect x="9" y="51.0" width="124" height="59" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="9" y="26" width="124" height="84" fill="none" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="9" y1="51" x2="133" y2="51" stroke="#66c2a5" stroke-width="1"/>
+	</g>
+	<text x="48" y="43.7" fill="#000000" font-family="Verdana" font-size="12">Attente</text>
+	<text x="14" y="68.8" fill="#000000" font-family="Verdana" font-size="12">identifiant_attente</text>
+	<line x1="14" y1="71" x2="127" y2="71" stroke="#000000" stroke-width="1"/>
+	<text x="14" y="85.8" fill="#000000" font-family="Verdana" font-size="12">date_demande</text>
+	<text x="14" y="102.8" fill="#000000" font-family="Verdana" font-size="12">status</text>
+</g>
+
+<!-- Entity Utilisateurs -->
+<g id="entity-Utilisateurs">
+	<g id="frame-Utilisateurs">
+		<rect x="275" y="9" width="140" height="25" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<rect x="275" y="34.0" width="140" height="93" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="275" y="9" width="140" height="118" fill="none" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="275" y1="34" x2="415" y2="34" stroke="#66c2a5" stroke-width="1"/>
+	</g>
+	<text x="310" y="26.7" fill="#000000" font-family="Verdana" font-size="12">Utilisateurs</text>
+	<text x="280" y="51.7" fill="#000000" font-family="Verdana" font-size="12">identifiant_utilisateur</text>
+	<line x1="280" y1="54" x2="409" y2="54" stroke="#000000" stroke-width="1"/>
+	<text x="280" y="68.8" fill="#000000" font-family="Verdana" font-size="12">nom</text>
+	<text x="280" y="85.8" fill="#000000" font-family="Verdana" font-size="12">email</text>
+	<text x="280" y="102.8" fill="#000000" font-family="Verdana" font-size="12">mot_de_passe</text>
+	<text x="280" y="119.8" fill="#000000" font-family="Verdana" font-size="12">inscription</text>
+</g>
+
+<!-- Entity Places -->
+<g id="entity-Places">
+	<g id="frame-Places">
+		<rect x="547" y="26" width="112" height="25" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<rect x="547" y="51.0" width="112" height="59" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="547" y="26" width="112" height="84" fill="none" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="547" y1="51" x2="659" y2="51" stroke="#66c2a5" stroke-width="1"/>
+	</g>
+	<text x="584" y="43.7" fill="#000000" font-family="Verdana" font-size="12">Places</text>
+	<text x="552" y="68.8" fill="#000000" font-family="Verdana" font-size="12">identifiant_place</text>
+	<line x1="552" y1="71" x2="653" y2="71" stroke="#000000" stroke-width="1"/>
+	<text x="552" y="85.8" fill="#000000" font-family="Verdana" font-size="12">nom</text>
+	<text x="552" y="102.8" fill="#000000" font-family="Verdana" font-size="12">numéro</text>
+</g>
+</svg>
