@@ -1,3 +1,5 @@
 <?php
 
-Route::get('/admin/users', 'Admin\UserController@index')->name('adminHome');
+Route::resource('/admin/users', 'Admin\UserController', ['names' => [
+    'index' => 'adminHome'
+]]);
