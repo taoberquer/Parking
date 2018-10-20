@@ -13,7 +13,9 @@ class Parking extends Model
 
     public function getPlaces()
     {
-        return $this->hasMany('App\Places')->where('created_at', '>=', date('Y-m-d H:i:s', time() - $this->using_time));
+        return $this->hasMany('App\Places')
+            ->where('created_at', '>=', date('Y-m-d H:i:s', time() - $this->using_time))
+            ->where('status', '=', 'reserved');
     }
 
     public function getCountPlaces()
