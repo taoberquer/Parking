@@ -22,9 +22,14 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
-                        <td>
+                        <td class="row">
                             <a href="{{ route('adminUsersEdit', $user->id) }}" class="btn btn-warning">Modifier</a>
-                            <button type="button" class="btn btn-danger">Supprimer</button>
+                            {{--<a href="{{ route('adminUsersDelete', $user->id) }}" class="btn btn-danger">Supprimer</a>--}}
+                            <form class="col" action="{{ route('adminUsersDelete', $user->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

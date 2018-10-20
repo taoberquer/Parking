@@ -6,4 +6,5 @@ Route::resource('/admin/users', 'Admin\UserController', ['names' => [
     'create' => 'adminUsersCreate',
     'store' => 'adminUsersStore',
     'update' => 'adminUsersUpdate',
+    'destroy' => 'adminUsersDelete',
 ]]);
