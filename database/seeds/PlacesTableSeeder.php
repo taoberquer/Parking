@@ -14,8 +14,8 @@ class PlacesTableSeeder extends Seeder
         DB::table('places')->insert([
             'status' => 'waiting',
             'place_number' => 5,
-            'owner' => 1,
-            'parking' => 1,
+            'user_id' => 1,
+            'parking_id' => 1,
         ]);
     }
 }

@@ -17,10 +17,10 @@ class CreatePlacesTable extends Migration
             $table->increments('id');
             $table->enum('status', ['waiting', 'reserved']);
             $table->integer('place_number');
-            $table->integer('owner')->unsigned();
-            $table->foreign('owner')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('parking')->unsigned();
-            $table->foreign('parking')->references('id')->on('parkings')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('parking_id')->unsigned();
+            $table->foreign('parking_id')->references('id')->on('parkings')->onDelete('cascade');
             $table->timestamps();
         });
     }
