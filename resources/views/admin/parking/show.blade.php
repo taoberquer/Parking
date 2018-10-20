@@ -33,7 +33,7 @@
                 <th scope="row">1</th>
                 <td>{{ $place->place_number }}</td>
                 <td>{{ $place->getOwner()->first()->name }}</td>
-                <td>{{ $place->getOwner()->first()->created_at->format('d/m/Y') }}</td>
+                <td>{{ date('d/m/Y à H:i:s', strtotime($place->getOwner()->first()->created_at) + $parking->using_time ) }}</td>
             </tr>
             @endforeach
             </tbody>
