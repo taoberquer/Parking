@@ -71,8 +71,6 @@ class ParkingController extends Controller
     {
         $parking = Parking::find($id);
 
-//        echo $parking->getCountPlaces();die;
-
         return view('admin.parking.show', compact('parking'));
     }
 

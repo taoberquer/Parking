@@ -2,6 +2,7 @@
 
 namespace App;
 
+use function date;
 use Illuminate\Database\Eloquent\Model;
 
 class Parking extends Model
@@ -12,16 +13,11 @@ class Parking extends Model
 
     public function getPlaces()
     {
-        return $this->hasMany('App\Places');
+        return $this->hasMany('App\Places')->where('created_at', '>=', date('Y-m-d H:i:s', time() - $this->using_time));
     }
 
     public function getCountPlaces()
     {
-        return $this->countPlaces()->count();
-    }
-
-    protected function countPlaces()
-    {
-        return $this->hasOne('App\Places')->selectRaw('parking_id, count(*) as count')->groupBy('parking_id');
+        return $this->getPlaces()->count();
     }
 }
