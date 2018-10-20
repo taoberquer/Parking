@@ -30,7 +30,7 @@ class ParkingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.parking.create');
     }
 
     /**
@@ -41,7 +41,21 @@ class ParkingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'maximum_place' => 'required|min:0|numeric',
+            'using_time' => 'required|min:0|numeric',
+        ]);
+
+        $parking = new Parking([
+            'name' => $request->get('name'),
+            'maximum_place' => $request->get('maximum_place'),
+            'using_time' => $request->get('using_time'),
+        ]);
+
+        $parking->save();
+
+        return redirect()->route('adminParkingsHome')->with('success', 'Parking ajouté !');
     }
 
     /**

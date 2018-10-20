@@ -24,7 +24,7 @@
                         <td>{{ $parking->maximum_place }}</td>
                         <td>{{ $parking->using_time }} s</td>
                         <td class="row">
-                            <a class="btn btn-warning col">Modifier</a>
+                            <div class="col"><a href="{{ route('adminParkingsCreate') }}" class="btn btn-warning">Modifier</a></div>
                             <form class="col" action="{{ route('adminParkingsDelete', $parking->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
