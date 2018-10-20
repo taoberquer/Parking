@@ -77,7 +77,9 @@ class ParkingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $parking = Parking::find($id);
+
+        return view('admin.parking.edit', compact('parking'));
     }
 
     /**
@@ -89,7 +91,21 @@ class ParkingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $parking = Parking::find($id);
+
+        $request->validate([
+            'name' => 'required|string',
+            'maximum_place' => 'required|min:0|numeric',
+            'using_time' => 'required|min:0|numeric',
+        ]);
+
+        $parking->name = $request->get('name');
+        $parking->maximum_place = $request->get('maximum_place');
+        $parking->using_time = $request->get('using_time');
+
+        $parking->save();
+
+        return redirect()->route('adminParkingsHome')->with('success', 'Parking mit à jour !');
     }
 
     /**
