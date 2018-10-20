@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+
             <table class="table">
                 <thead>
                 <tr>
@@ -11,6 +12,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Rôle</th>
                     <th scope="col">Actions</th>
+                    <th scope="col"><a href="{{ route('adminUsersCreate') }}" class="btn btn-success">Ajouter</a></th>
                 </tr>
                 </thead>
                 <tbody>

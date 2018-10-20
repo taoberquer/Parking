@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -27,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -38,7 +40,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email'=>'required|unique:mysql.users|email',
+            'name'=> 'required',
+            'password' => 'required',
+            'role' => ['required', Rule::in('user', 'admin')],
+        ]);
+        $user = new User([
+            'email' => $request->get('email'),
+            'name'=> $request->get('name'),
+            'password'=> Hash::make($request->get('password')),
+            'role'=> $request->get('role'),
+        ]);
+        $user->save();
+        return redirect()->route('adminUsersHome')->with('success', 'Nouvel utilisateur ajouté !');
     }
 
     /**
