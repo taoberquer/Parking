@@ -3,7 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <form action="" method="post" class="col-10">
+            <form action="{{ route('adminUsersUpdate', $user->id) }}" method="post" class="col-10">
+                @method('PATCH')
+                @csrf
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="exampleInputEmail1">Adresse email</label>
@@ -17,13 +19,13 @@
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" class="form-control" placeholder="Laisser vide">
+                        <input type="password" class="form-control" placeholder="********">
                     </div>
                     <div class="form-group col">
                         <label for="inputState">Rôle</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>{{ $user->role }}</option>
-                            <option>...</option>
+                        <select id="inputState" class="form-control" name="role">
+                            <option value="admin" @if ($user->role == 'admin') selected @endif>Administrateur</option>
+                            <option value="user" @if ($user->role == 'user') selected @endif>Utilisateur</option>
                         </select>
                     </div>
                 </div>

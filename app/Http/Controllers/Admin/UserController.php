@@ -89,7 +89,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $request->validate([
+            'email' => 'required|unique:users,email,'.$user->id,
+            'name'=> 'required',
+            'role' => ['required', Rule::in('user', 'admin')],
+        ]);
+
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->role = $request->get('role');
+
+        if ($request->get('password')) {
+            $user->password = Hash::make($request->get('password'));
+        }
+        $user->save();
+
+        return redirect()->route('adminUsersHome')->with('success', 'Utilisateur mit à jour !');
     }
 
     /**

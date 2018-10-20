@@ -5,4 +5,5 @@ Route::resource('/admin/users', 'Admin\UserController', ['names' => [
     'edit' => 'adminUsersEdit',
     'create' => 'adminUsersCreate',
     'store' => 'adminUsersStore',
+    'update' => 'adminUsersUpdate',
 ]]);
