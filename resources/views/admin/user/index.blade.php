@@ -21,7 +21,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
                         <td>
-                            <button type="button" class="btn btn-warning">Modifier</button>
+                            <a href="{{ route('adminUsersEdit', $user->id) }}" class="btn btn-warning">Modifier</a>
                             <button type="button" class="btn btn-danger">Supprimer</button>
                         </td>
                     </tr>
