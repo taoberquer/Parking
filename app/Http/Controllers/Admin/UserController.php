@@ -35,23 +35,27 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             'email'=>'required|unique:mysql.users|email',
             'name'=> 'required',
             'password' => 'required',
             'role' => ['required', Rule::in('user', 'admin')],
-        ]);
-        $user = new User([
+            ]
+        );
+        $user = new User(
+            [
             'email' => $request->get('email'),
             'name'=> $request->get('name'),
             'password'=> Hash::make($request->get('password')),
             'role'=> $request->get('role'),
-        ]);
+            ]
+        );
         $user->save();
         return redirect()->route('adminUsersHome')->with('success', 'Nouvel utilisateur ajouté !');
     }
@@ -59,7 +63,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -70,7 +74,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -83,19 +87,21 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
 
-        $request->validate([
+        $request->validate(
+            [
             'email' => 'required|unique:users,email,'.$user->id,
             'name'=> 'required',
             'role' => ['required', Rule::in('user', 'admin')],
-        ]);
+            ]
+        );
 
         $user->name = $request->get('name');
         $user->email = $request->get('email');
@@ -112,7 +118,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
