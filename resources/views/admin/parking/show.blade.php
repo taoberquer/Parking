@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="mt-2">
-            <label>Nombre de place : 0/{{ $parking->maximum_place }}</label><br>
+            <label>Nombre de place : {{ $parking->getCountPlaces() }} / {{ $parking->maximum_place }}</label><br>
             <label>Temps d'attribution (en secondes) : {{ $parking->using_time }}</label>
         </div>
 
