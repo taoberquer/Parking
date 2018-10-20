@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Parking;
+use App\Places;
 use function compact;
+use function dd;
 use Illuminate\Http\Request;
 use function redirect;
+use function var_dump;
 use function view;
 
 class ParkingController extends Controller
@@ -66,7 +69,9 @@ class ParkingController extends Controller
      */
     public function show($id)
     {
-        //
+        $parking = Parking::find($id);
+
+        return view('admin.parking.show', compact('parking'));
     }
 
     /**

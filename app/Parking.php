@@ -9,4 +9,9 @@ class Parking extends Model
     protected $fillable = [
         'name', 'maximum_place', 'using_time'
     ];
+
+    public function getPlaces()
+    {
+        return $this->hasMany('App\Places');
+    }
 }

@@ -19,7 +19,7 @@
                 @foreach($parkings as $parking)
                     <tr>
                         <th scope="row">{{$parking->id}}</th>
-                        <td>{{ $parking->name }}</td>
+                        <td><a href="{{ route('adminParkingsShow', $parking->id) }}">{{ $parking->name }}</a></td>
                         <td>0</td>
                         <td>{{ $parking->maximum_place }}</td>
                         <td>{{ $parking->using_time }} s</td>
