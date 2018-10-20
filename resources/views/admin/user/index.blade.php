@@ -24,7 +24,6 @@
                         <td>{{ $user->role }}</td>
                         <td class="row">
                             <a href="{{ route('adminUsersEdit', $user->id) }}" class="btn btn-warning">Modifier</a>
-                            {{--<a href="{{ route('adminUsersDelete', $user->id) }}" class="btn btn-danger">Supprimer</a>--}}
                             <form class="col" action="{{ route('adminUsersDelete', $user->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
