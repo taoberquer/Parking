@@ -4,16 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Parking;
-use App\Places;
 use function compact;
-use function dd;
 use Illuminate\Http\Request;
 use function redirect;
-use function var_dump;
 use function view;
 
+/**
+ * Class ParkingController
+ * @package App\Http\Controllers\Admin
+ */
 class ParkingController extends Controller
 {
+    /**
+     * ParkingController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
