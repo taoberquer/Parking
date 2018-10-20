@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Parking;
 use function compact;
 use Illuminate\Http\Request;
+use function redirect;
 use function view;
 
 class ParkingController extends Controller
@@ -85,6 +86,9 @@ class ParkingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $parking = Parking::find($id);
+        $parking->delete();
+
+        return redirect()->route('adminParkingsHome')->with('success', 'Parking supprimé !');
     }
 }

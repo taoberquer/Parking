@@ -23,9 +23,13 @@
                         <td>0</td>
                         <td>{{ $parking->maximum_place }}</td>
                         <td>{{ $parking->using_time }} s</td>
-                        <td>
-                            <a class="btn btn-warning">Modifier</a>
-                            <a class="btn btn-danger">Supprimer</a>
+                        <td class="row">
+                            <a class="btn btn-warning col">Modifier</a>
+                            <form class="col" action="{{ route('adminParkingsDelete', $parking->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Supprimer</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
