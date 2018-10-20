@@ -15,6 +15,8 @@ class ParkingsTableSeeder extends Seeder
             'name' => 'Gambetta',
             'maximum_place' => 50,
             'using_time' => 500,
+            'created_at' => date('Y-m-d H:i:s',time()),
+            'updated_at' => date('Y-m-d H:i:s',time()),
         ]);
     }
 }
