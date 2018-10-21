@@ -19,7 +19,7 @@
                 <div class="form-row">
                     <div class="form-group col">
                         <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" class="form-control" placeholder="********">
+                        <input type="password" name="password" class="form-control" placeholder="********">
                     </div>
                     <div class="form-group col">
                         <label for="inputState">Rôle</label>
