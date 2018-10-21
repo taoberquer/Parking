@@ -16,7 +16,7 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('status', ['waiting', 'reserved', 'abandoned']);
-            $table->integer('place_number');
+            $table->integer('place_number')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('parking_id')->unsigned();
