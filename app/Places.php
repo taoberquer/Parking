@@ -85,7 +85,9 @@ class Places extends Model
         $parking = Parking::find($parking_id);
 
         $places = Places::where('parking_id', '=', $parking_id)
-            ->groupBy(['parking_id', 'user_id'])
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->unique('user_id')
             ->pluck('created_at', 'place_number')
             ->toArray();
 
@@ -94,7 +96,6 @@ class Places extends Model
                 $unavailablePlaceNumber[] = $index;
             }
         }
-
         return $unavailablePlaceNumber;
     }
 }

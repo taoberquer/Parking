@@ -58,13 +58,13 @@ class PlaceController extends Controller
             'user_id' => 'required|exists:mysql.users,id|integer',
         ]);
 
-        $place = Places::assignPlace(
+        Places::assignPlace(
             [
                 'user_id'=> $request->get('user_id'),
                 'parking_id'=> $request->get('parking_id'),
             ]
         );
-//        $place->save();
+
         return redirect()->route('home')->with('success', 'Nouvel place en attente !');
     }
 
