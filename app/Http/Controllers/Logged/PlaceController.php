@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Logged;
 
+use App\Parking;
 use App\Places;
+use function compact;
 use function dd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use function redirect;
+use function view;
 
 /**
  * Class PlaceController
@@ -32,7 +35,9 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        //
+        $parkings = Parking::all();
+
+        return view('logged.create', compact('parkings'));
     }
 
     /**
