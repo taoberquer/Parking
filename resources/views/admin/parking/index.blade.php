@@ -20,7 +20,7 @@
                     <tr>
                         <th scope="row">{{$parking->id}}</th>
                         <td><a href="{{ route('adminParkingsShow', $parking->id) }}">{{ $parking->name }}</a></td>
-                        <td>0</td>
+                        <td>{{ $parking->maximum_place - $parking->getCountPlaces() }}</td>
                         <td>{{ $parking->maximum_place }}</td>
                         <td>{{ $parking->using_time }} s</td>
                         <td class="row">
