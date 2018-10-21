@@ -4,11 +4,13 @@ namespace App;
 
 use function date;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use function var_dump;
 
 class Parking extends Model
 {
     protected $fillable = [
-        'name', 'maximum_place', 'using_time'
+            'name', 'maximum_place', 'using_time'
     ];
 
     public function getPlaces()
@@ -21,5 +23,16 @@ class Parking extends Model
     public function getCountPlaces()
     {
         return $this->getPlaces()->count();
+    }
+
+    public function getUserPlace($id)
+    {
+        return $this->hasMany('App\Places')->where('user_id', '=', $id)->orderBy('id', 'desc')->first();
+    }
+
+    public static function getUserParkingsById($id)
+    {
+        $userPlaces = Places::where('user_id', '=', $id)->pluck('id')->toArray();
+        return Parking::find($userPlaces);
     }
 }

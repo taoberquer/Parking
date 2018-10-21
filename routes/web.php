@@ -13,6 +13,6 @@
 
 require 'web/admin.php';
 
-Auth::routes();
+require 'web/logged.php';
 
-Route::get('/', 'HomeController@index')->name('home');
+Auth::routes();
