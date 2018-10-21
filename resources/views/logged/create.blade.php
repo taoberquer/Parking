@@ -16,8 +16,8 @@
                         <tr>
                             <td>{{ $parking->name }}</td>
                             <td>{{ $parking->getCountPlaces() }} / {{ $parking->maximum_place }}</td>
-                            <td>{{ $parking->getCountPlaces() }} / {{ $parking->maximum_place }}</td>
-                            @if (in_array($parking->getUserPlace(Auth::user()->id)->getStatus($parking->using_time), ['Expiré', 'Abandonné']))
+
+                            @if (!$parking->getUserPlace(Auth::user()->id) OR in_array($parking->getUserPlace(Auth::user()->id)->getStatus($parking->using_time), ['Expiré', 'Abandonné']))
                                 <td>
                                     <form action="{{ route('addPlace') }}" method="post">
                                         @csrf

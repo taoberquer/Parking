@@ -31,7 +31,7 @@
                             </td>
                         @else
                             <td>
-                                <form action="{{ route('giveUpPlace', $parking->getUserPlace(Auth::user()->id)->id) }}" method="post">
+                                <form action="{{ route('giveUpPlace', $parking->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Abandonner</button>
