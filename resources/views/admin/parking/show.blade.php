@@ -29,10 +29,10 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($parking->getPlaces as $place)
+            @foreach($parking->getPlacesAndWaiting as $place)
             <tr>
-                <th scope="row">1</th>
-                <td>{{ $place->place_number }}</td>
+                <th scope="row">{{ $place->id }}</th>
+                <td>{{ $place->getPlaceNumber($parking->using_time) }}</td>
                 <td>{{ $place->getOwner()->first()->name }}</td>
                 <td>{{ date('d/m/Y à H:i:s', strtotime($place->getOwner()->first()->created_at) + $parking->using_time ) }}</td>
                     <td>

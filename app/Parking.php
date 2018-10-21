@@ -20,6 +20,12 @@ class Parking extends Model
             ->where('status', '=', 'reserved');
     }
 
+    public function getPlacesAndWaiting()
+    {
+        return $this->hasMany('App\Places')
+            ->where('created_at', '>=', date('Y-m-d H:i:s', time() - $this->using_time));
+    }
+
     public function getCountPlaces()
     {
         return $this->getPlaces()->count();
