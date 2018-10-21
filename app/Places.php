@@ -50,7 +50,7 @@ class Places extends Model
         }
         $RemainingTimeInSeconds = $this->created_at->diffInSeconds(Carbon::now()->subSeconds($using_time));
 
-        return gmdate('d \J\o\u\r\(\s\) H:i:s', $RemainingTimeInSeconds);
+        return gmdate('H:i:s', $RemainingTimeInSeconds);
     }
 
     public static function assignPlace(array $parameters)
