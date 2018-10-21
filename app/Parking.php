@@ -32,7 +32,7 @@ class Parking extends Model
 
     public static function getUserParkingsById($id)
     {
-        $userPlaces = Places::where('user_id', '=', $id)->pluck('id')->toArray();
+        $userPlaces = Places::where('user_id', '=', $id)->pluck('parking_id')->toArray();
         return Parking::find($userPlaces);
     }
 }
