@@ -1,11 +1,14 @@
 <?php
 
+Route::resource('/', 'Logged\HomeController', ['names' => ['index' => 'home']]);
 Route::resource(
-    '/',
-    'Logged\HomeController',
+    '/place',
+    'Logged\PlaceController',
     [
         'names' => [
-            'index' => 'Home',
+            'create' => 'newPlaceRequest',
+            'store' => 'addPlace',
+            'destroy' => 'giveUpPlace',
         ],
     ]
 );

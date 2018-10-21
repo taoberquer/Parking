@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use function dd;
 use Illuminate\Database\Eloquent\Model;
+use function in_array;
 
 class Places extends Model
 {
@@ -15,6 +16,15 @@ class Places extends Model
     public function getOwner()
     {
         return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function getPlaceNumber($using_time)
+    {
+        if ($this->getStatus($using_time) == 'Réservé') {
+            return $this->place_number;
+        }
+
+        return null;
     }
 
     public function getStatus($using_time)
