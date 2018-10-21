@@ -21,7 +21,14 @@
                         <td>{{ $parking->getUserPlace(Auth::user()->id)->getStatus($parking->using_time) }}</td>
                         <td>{{ $parking->getUserPlace(Auth::user()->id)->getRemainingTime($parking->using_time) }}</td>
                         @if (in_array($parking->getUserPlace(Auth::user()->id)->getStatus($parking->using_time), ['Expiré', 'Abandonné']))
-                            <td><a href="{{ route('newPlaceRequest', $parking->id) }}" class="btn btn-success">Renouveler</a></td>
+                            <td>
+                                <form action="{{ route('addPlace') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="parking_id" value="{{ $parking->id }}">
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                    <button type="submit" class="btn btn-success">Renouveler</button>
+                                </form>
+                            </td>
                         @else
                             <td>
                                 <form action="{{ route('giveUpPlace', $parking->id) }}" method="post">

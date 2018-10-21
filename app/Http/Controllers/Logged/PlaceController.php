@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\Logged;
 
 use App\Places;
+use function dd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use function redirect;
 
+/**
+ * Class PlaceController
+ * @package App\Http\Controllers\Logged
+ */
 class PlaceController extends Controller
 {
     /**
@@ -30,14 +36,29 @@ class PlaceController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param Request $request
+     * @param         $parking_id
+     * @param null    $user_id
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'parking_id' => 'required|exists:mysql.parkings,id|integer',
+            'user_id' => 'required|exists:mysql.users,id|integer',
+        ]);
+
+        $place = new Places(
+            [
+                'status' => 'waiting',
+                'place_number' => null,
+                'user_id'=> $request->get('user_id'),
+                'parking_id'=> $request->get('parking_id'),
+            ]
+        );
+        $place->save();
+        return redirect()->route('home')->with('success', 'Nouvel place en attente !');
     }
 
     /**
