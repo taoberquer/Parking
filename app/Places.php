@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use function count;
 use function dd;
 use Illuminate\Database\Eloquent\Model;
 use function in_array;
@@ -23,6 +24,10 @@ class Places extends Model
     {
         if ($this->getStatus($using_time) == 'Réservé') {
             return $this->place_number;
+        }
+
+        if ($this->getStatus($using_time) == 'En attente') {
+            return $this->getWaitingPlace() . ' (dans la file)';
         }
 
         return null;
@@ -51,6 +56,19 @@ class Places extends Model
         $RemainingTimeInSeconds = $this->created_at->diffInSeconds(Carbon::now()->subSeconds($using_time));
 
         return gmdate('H:i:s', $RemainingTimeInSeconds);
+    }
+
+    protected function getWaitingPlace()
+    {
+        $places = Places::where('parking_id', '=', $this->parking_id)
+            ->orderBy('created_at', 'desc')
+            ->get()->unique('user_id')
+            ->where('status', '=', 'waiting')
+            ->where('created_at', '<', $this->created_at)
+            ->pluck('user_id')
+            ->toArray();
+
+        return count($places) + 1;
     }
 
     public static function assignPlace(array $parameters)
@@ -85,7 +103,9 @@ class Places extends Model
         $parking = Parking::find($parking_id);
 
         $places = Places::where('parking_id', '=', $parking_id)
-            ->groupBy(['parking_id', 'user_id'])
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->unique('user_id')
             ->pluck('created_at', 'place_number')
             ->toArray();
 
@@ -94,7 +114,6 @@ class Places extends Model
                 $unavailablePlaceNumber[] = $index;
             }
         }
-
         return $unavailablePlaceNumber;
     }
 }

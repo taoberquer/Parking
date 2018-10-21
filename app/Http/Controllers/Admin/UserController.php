@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Parking;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -80,7 +81,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $parkings = Parking::getUserParkingsById($user->id);
+
+        return view('admin.user.show', compact('user', 'parkings'));
     }
 
     /**

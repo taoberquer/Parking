@@ -2,26 +2,11 @@
 
 namespace App\Http\Controllers\Logged;
 
-use App\Parking;
-use App\Places;
-use function compact;
-use function dd;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use function redirect;
-use function view;
 
-/**
- * Class PlaceController
- * @package App\Http\Controllers\Logged
- */
-class PlaceController extends Controller
+class MyProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -39,33 +24,18 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        $parkings = Parking::all();
-
-        return view('logged.create', compact('parkings'));
+        //
     }
 
     /**
-     * @param Request $request
-     * @param         $parking_id
-     * @param null    $user_id
+     * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'parking_id' => 'required|exists:mysql.parkings,id|integer',
-            'user_id' => 'required|exists:mysql.users,id|integer',
-        ]);
-
-        Places::assignPlace(
-            [
-                'user_id'=> $request->get('user_id'),
-                'parking_id'=> $request->get('parking_id'),
-            ]
-        );
-
-        return redirect()->route('home')->with('success', 'Nouvel place en attente !');
+        //
     }
 
     /**
@@ -87,7 +57,9 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -99,7 +71,26 @@ class PlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $request->validate(
+            [
+                'email' => 'required|unique:users,email,'.$user->id,
+                'name'=> 'required',
+                'role' => ['required', Rule::in('user', 'admin')],
+            ]
+        );
+
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->role = $request->get('role');
+
+        if ($request->get('password')) {
+            $user->password = Hash::make($request->get('password'));
+        }
+        $user->save();
+
+        return redirect()->route('myProfile')->with('success', 'Utilisateur mit à jour !');
     }
 
     /**
@@ -110,10 +101,6 @@ class PlaceController extends Controller
      */
     public function destroy($id)
     {
-        $place = Places::find($id);
-        $place->status = 'abandoned';
-        $place->save();
-
-        return redirect()->route('home')->with('Succes', 'Place abandonné !');
+        //
     }
 }

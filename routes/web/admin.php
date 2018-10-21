@@ -6,6 +6,7 @@ Route::resource(
     ['names' => [
     'index' => 'adminUsersHome',
     'create' => 'adminUsersCreate',
+    'show' => 'adminUsersShow',
     'store' => 'adminUsersStore',
     'edit' => 'adminUsersEdit',
     'update' => 'adminUsersUpdate',
