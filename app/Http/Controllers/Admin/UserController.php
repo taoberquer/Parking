@@ -114,7 +114,7 @@ class UserController extends Controller
             'role' => ['required', Rule::in('user', 'admin')],
             ]
         );
-        
+
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->role = $request->get('role');
