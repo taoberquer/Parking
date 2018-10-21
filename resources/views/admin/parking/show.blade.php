@@ -25,6 +25,7 @@
                 <th scope="col">Numéro de place</th>
                 <th scope="col">Propriétaire</th>
                 <th scope="col">Attribué jusqu'au</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -34,6 +35,13 @@
                 <td>{{ $place->place_number }}</td>
                 <td>{{ $place->getOwner()->first()->name }}</td>
                 <td>{{ date('d/m/Y à H:i:s', strtotime($place->getOwner()->first()->created_at) + $parking->using_time ) }}</td>
+                    <td>
+                        <form action="{{ route('giveUpPlace', $parking->getUserPlace($place->getOwner()->first()->id)->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Désinscire</button>
+                        </form>
+                    </td>
             </tr>
             @endforeach
             </tbody>
