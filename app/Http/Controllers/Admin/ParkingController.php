@@ -144,7 +144,7 @@ class ParkingController extends Controller
     public function destroy($id)
     {
         $this->authorize('delete', Parking::class);
-        
+
         $parking = Parking::find($id);
         $parking->delete();
 

@@ -47,6 +47,7 @@ class UserController extends Controller
     public function create()
     {
         $this->authorize('create', User::class);
+        
         return view('admin.user.create');
     }
 
@@ -58,6 +59,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', User::class);
+
         $request->validate(
             [
             'email'=>'required|unique:mysql.users|email',
@@ -120,6 +123,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+
+        $this->authorize('update', $user);
 
         $request->validate(
             [
