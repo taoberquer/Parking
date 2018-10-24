@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Parking;
 use function compact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function redirect;
 use function view;
 
@@ -30,6 +31,8 @@ class ParkingController extends Controller
      */
     public function index()
     {
+        $this->authorize('index', Parking::class);
+
         $parkings = Parking::all();
 
         return view('admin.parking.index', compact('parkings'));
@@ -42,6 +45,8 @@ class ParkingController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Parking::class);
+
         return view('admin.parking.create');
     }
 
@@ -53,6 +58,8 @@ class ParkingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Parking::class);
+
         $request->validate([
             'name' => 'required|string',
             'maximum_place' => 'required|min:0|numeric',
@@ -78,6 +85,8 @@ class ParkingController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('view', Parking::class);
+
         $parking = Parking::find($id);
 
         return view('admin.parking.show', compact('parking'));
@@ -91,6 +100,8 @@ class ParkingController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('update', Parking::class);
+
         $parking = Parking::find($id);
 
         return view('admin.parking.edit', compact('parking'));
@@ -105,6 +116,8 @@ class ParkingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('update', Parking::class);
+
         $parking = Parking::find($id);
 
         $request->validate([
@@ -130,6 +143,8 @@ class ParkingController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete', Parking::class);
+        
         $parking = Parking::find($id);
         $parking->delete();
 
