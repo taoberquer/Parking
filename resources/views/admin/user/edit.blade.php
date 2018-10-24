@@ -21,6 +21,7 @@
                         <label for="exampleInputPassword1">Mot de passe</label>
                         <input type="password" name="password" class="form-control" placeholder="********">
                     </div>
+                    @if(\Auth::user()->isAdmin())
                     <div class="form-group col">
                         <label for="inputState">Rôle</label>
                         <select id="inputState" class="form-control" name="role">
@@ -28,6 +29,7 @@
                             <option value="user" @if ($user->role == 'user') selected @endif>Utilisateur</option>
                         </select>
                     </div>
+                    @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Mettre à jour</button>
             </form>

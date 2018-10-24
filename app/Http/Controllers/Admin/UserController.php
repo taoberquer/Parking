@@ -6,8 +6,10 @@ use App\Parking;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use function var_dump;
 
 /**
  * Class UserController
@@ -30,6 +32,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('index', User::class);
+
         $users = User::all();
 
         return view('admin.user.index', compact('users'));
@@ -42,6 +46,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
         return view('admin.user.create');
     }
 
@@ -82,6 +87,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+
+        $this->authorize('view', $user);
+
         $parkings = Parking::getUserParkingsById($user->id);
 
         return view('admin.user.show', compact('user', 'parkings'));
@@ -96,6 +104,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+
+        $this->authorize('update', $user);
 
         return view('admin.user.edit', compact('user'));
     }
@@ -140,6 +150,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+
+        $this->authorize('delete', $user);
+
         $user->delete();
 
         return redirect()->route('adminUsersHome')->with('success', 'Utilisateur supprimé !');
