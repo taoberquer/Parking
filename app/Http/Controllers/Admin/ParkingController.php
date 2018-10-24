@@ -12,6 +12,7 @@ use function view;
 
 /**
  * Class ParkingController
+ *
  * @package App\Http\Controllers\Admin
  */
 class ParkingController extends Controller
@@ -60,17 +61,21 @@ class ParkingController extends Controller
     {
         $this->authorize('create', Parking::class);
 
-        $request->validate([
+        $request->validate(
+            [
             'name' => 'required|string',
             'maximum_place' => 'required|min:0|numeric',
             'using_time' => 'required|min:0|numeric',
-        ]);
+            ]
+        );
 
-        $parking = new Parking([
+        $parking = new Parking(
+            [
             'name' => $request->get('name'),
             'maximum_place' => $request->get('maximum_place'),
             'using_time' => $request->get('using_time'),
-        ]);
+            ]
+        );
 
         $parking->save();
 
@@ -120,11 +125,13 @@ class ParkingController extends Controller
 
         $parking = Parking::find($id);
 
-        $request->validate([
+        $request->validate(
+            [
             'name' => 'required|string',
             'maximum_place' => 'required|min:0|numeric',
             'using_time' => 'required|min:0|numeric',
-        ]);
+            ]
+        );
 
         $parking->name = $request->get('name');
         $parking->maximum_place = $request->get('maximum_place');

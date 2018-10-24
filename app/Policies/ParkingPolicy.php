@@ -20,8 +20,8 @@ class ParkingPolicy
     /**
      * Determine whether the user can view the parking.
      *
-     * @param  \App\User  $user
-     * @param  \App\Parking  $parking
+     * @param  \App\User    $user
+     * @param  \App\Parking $parking
      * @return mixed
      */
     public function view(User $user)
@@ -32,7 +32,7 @@ class ParkingPolicy
     /**
      * Determine whether the user can create parkings.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return mixed
      */
     public function create(User $user)
@@ -43,8 +43,8 @@ class ParkingPolicy
     /**
      * Determine whether the user can update the parking.
      *
-     * @param  \App\User  $user
-     * @param  \App\Parking  $parking
+     * @param  \App\User    $user
+     * @param  \App\Parking $parking
      * @return mixed
      */
     public function update(User $user)
@@ -55,8 +55,8 @@ class ParkingPolicy
     /**
      * Determine whether the user can delete the parking.
      *
-     * @param  \App\User  $user
-     * @param  \App\Parking  $parking
+     * @param  \App\User    $user
+     * @param  \App\Parking $parking
      * @return mixed
      */
     public function delete(User $user)

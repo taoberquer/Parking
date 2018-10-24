@@ -86,12 +86,14 @@ class Places extends Model
             $status = 'reserved';
         }
 
-        $place = new Places([
+        $place = new Places(
+            [
             'status' => $status,
             'place_number' => $randomPlace,
             'user_id' => $parameters['user_id'],
             'parking_id' => $parameters['parking_id'],
-        ]);
+            ]
+        );
 
         $place->save();
     }

@@ -14,6 +14,7 @@ use function view;
 
 /**
  * Class PlaceController
+ *
  * @package App\Http\Controllers\Logged
  */
 class PlaceController extends Controller
@@ -45,18 +46,20 @@ class PlaceController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @param         $parking_id
-     * @param null    $user_id
+     * @param Request    $request
+     * @param $parking_id
+     * @param null       $user_id
      *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             'parking_id' => 'required|exists:mysql.parkings,id|integer',
             'user_id' => 'required|exists:mysql.users,id|integer',
-        ]);
+            ]
+        );
 
         Places::assignPlace(
             [
@@ -71,7 +74,7 @@ class PlaceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

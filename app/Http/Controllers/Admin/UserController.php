@@ -13,6 +13,7 @@ use function var_dump;
 
 /**
  * Class UserController
+ *
  * @package App\Http\Controllers\Admin
  */
 class UserController extends Controller

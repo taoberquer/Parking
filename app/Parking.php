@@ -62,10 +62,12 @@ class Parking extends Model
         $parking = Parking::find($parkingId);
 
         foreach ($userIds as $userId) {
-            Places::assignPlace([
+            Places::assignPlace(
+                [
                 'parking_id' => $parkingId,
                 'user_id' => $userId,
-            ]);
+                ]
+            );
         }
     }
 }

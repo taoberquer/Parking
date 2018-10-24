@@ -15,10 +15,13 @@ Route::resource(
     ]]
 );
 
-Route::patch('/admin/users/allow/{id}', [
+Route::patch(
+    '/admin/users/allow/{id}',
+    [
     'as' => 'adminUsersAllow',
     'uses' => 'Admin\UserController@allowUser'
-]);
+    ]
+);
 
 Route::resource(
     '/admin/parkings',
@@ -34,7 +37,10 @@ Route::resource(
     ]]
 );
 
-Route::get('/admin/parkings/refresh/{id}', [
+Route::get(
+    '/admin/parkings/refresh/{id}',
+    [
     'as' => 'adminParkingsRefresh',
     'uses' => 'Admin\ParkingController@refresh'
-]);
+    ]
+);
