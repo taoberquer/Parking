@@ -85,6 +85,11 @@
                 {{ session()->get('success') }}
             </div><br />
         @endif
+        @if(session()->get('warning'))
+            <div class="alert alert-warning">
+                {{ session()->get('warning') }}
+            </div><br />
+        @endif
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -97,6 +102,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
 </body>
 </html>
