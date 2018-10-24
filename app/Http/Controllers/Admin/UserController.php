@@ -166,4 +166,17 @@ class UserController extends Controller
 
         return redirect()->route('adminUsersHome')->with('success', 'Utilisateur supprimé !');
     }
+
+    public function allowUser($id)
+    {
+        $user = User::find($id);
+
+        $this->authorize('allowUser', User::class);
+
+        $user->permit = true;
+
+        $user->save();
+
+        return redirect()->route('adminUsersHome')->with('success', 'Utilisateur autorisé !');
+    }
 }

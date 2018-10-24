@@ -67,4 +67,9 @@ class UserPolicy
     {
         return false;
     }
+
+    public function allowUser(User $user, User $model)
+    {
+        return false;
+    }
 }

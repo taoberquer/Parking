@@ -3,7 +3,6 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-
             <table class="table">
                 <thead>
                 <tr>
@@ -23,12 +22,19 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
                         <td class="row">
-                            <a href="{{ route('adminUsersEdit', $user->id) }}" class="btn btn-warning">Modifier</a>
-                            <form class="col" action="{{ route('adminUsersDelete', $user->id)}}" method="post">
+                            <a class="col-auto btn btn-warning" href="{{ route('adminUsersEdit', $user->id) }}">Modifier</a>
+                            <form class="col-auto" action="{{ route('adminUsersDelete', $user->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
+                            @if(!$user->permit)
+                                <form class="col-auto" action="{{ route('adminUsersAllow', $user->id) }}" method="post">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button class="btn btn-success" type="submit">Autoriser</button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

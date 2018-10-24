@@ -11,8 +11,14 @@ Route::resource(
     'edit' => 'adminUsersEdit',
     'update' => 'adminUsersUpdate',
     'destroy' => 'adminUsersDelete',
+    'allowUser' => 'adminUsersAllow',
     ]]
 );
+
+Route::patch('/admin/users/allow/{id}', [
+    'as' => 'adminUsersAllow',
+    'uses' => 'Admin\UserController@allowUser'
+]);
 
 Route::resource(
     '/admin/parkings',
