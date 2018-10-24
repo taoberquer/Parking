@@ -47,7 +47,7 @@ class UserController extends Controller
     public function create()
     {
         $this->authorize('create', User::class);
-        
+
         return view('admin.user.create');
     }
 
@@ -130,17 +130,21 @@ class UserController extends Controller
             [
             'email' => 'required|unique:users,email,'.$user->id,
             'name'=> 'required',
-            'role' => ['required', Rule::in('user', 'admin')],
+            'role' => [ Rule::in('user', 'admin')],
             ]
         );
 
         $user->name = $request->get('name');
         $user->email = $request->get('email');
-        $user->role = $request->get('role');
+
+        if ($request->get('role')) {
+            $user->role = $request->get('role');
+        }
 
         if ($request->get('password')) {
             $user->password = Hash::make($request->get('password'));
         }
+
         $user->save();
 
         return redirect()->route('adminUsersHome')->with('success', 'Utilisateur mit à jour !');
