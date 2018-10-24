@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
             'role' => 'admin',
+            'permit' => '1',
             'created_at' => date('Y-m-d H:i:s',time()),
             'updated_at' => date('Y-m-d H:i:s',time()),
         ]);
