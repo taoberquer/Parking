@@ -93,7 +93,7 @@ class UserController extends Controller
 
         $this->authorize('view', $user);
 
-        $parkings = Parking::getUserParkingsById($user->id);
+        $parkings = Parking::all();
 
         return view('admin.user.show', compact('user', 'parkings'));
     }

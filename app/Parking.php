@@ -33,7 +33,12 @@ class Parking extends Model
 
     public function getUserPlace($id)
     {
-        return $this->hasMany('App\Places')->where('user_id', '=', $id)->orderBy('id', 'desc')->first();
+        return $this->getUserPlaces($id)->first();
+    }
+
+    public function getUserPlaces($id)
+    {
+        return $this->hasMany('App\Places')->where('user_id', '=', $id)->orderBy('id', 'desc');
     }
 
     public static function getUserParkingsById($id)
