@@ -57,10 +57,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('adminUsersEdit', Auth::user()->id)}}">Mon Profil</a>
+                                    @if(\Auth::user()->isAdmin())
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item disabled font-weight-bold text-center">Administration</a>
                                     <a class="dropdown-item" href="{{ route('adminUsersHome') }}">Utilisateurs</a>
                                     <a class="dropdown-item" href="{{ route('adminParkingsHome') }}">Parkings</a>
+                                    @endif
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
