@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+require 'web/admin.php';
+
+require 'web/logged.php';
+
+Auth::routes();
