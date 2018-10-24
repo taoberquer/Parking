@@ -146,8 +146,7 @@ class UserController extends Controller
         }
 
         $user->save();
-
-        return redirect()->route('adminUsersHome')->with('success', 'Utilisateur mit à jour !');
+        return back()->with('success', 'Utilisateur mit à jour !');
     }
 
     /**

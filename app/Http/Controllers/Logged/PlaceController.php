@@ -65,41 +65,7 @@ class PlaceController extends Controller
             ]
         );
 
-        return redirect()->route('home')->with('success', 'Nouvel place en attente !');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return back()->with('success', 'Demande d\'une place effectué !');
     }
 
     /**
@@ -114,6 +80,6 @@ class PlaceController extends Controller
         $place->status = 'abandoned';
         $place->save();
 
-        return redirect()->route('home')->with('Succes', 'Place abandonné !');
+        return back()->with('success', 'Place abandonné !');
     }
 }
