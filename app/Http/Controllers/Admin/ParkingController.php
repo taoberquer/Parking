@@ -150,4 +150,13 @@ class ParkingController extends Controller
 
         return redirect()->route('adminParkingsHome')->with('success', 'Parking supprimé !');
     }
+
+    public function refresh($id)
+    {
+        $this->authorize('refresh', Parking::class);
+
+        Parking::refreshPlaces($id);
+
+        return back()->with('success', 'Toutes les places ont été mis à jour !');
+    }
 }

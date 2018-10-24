@@ -33,3 +33,8 @@ Route::resource(
     'destroy' => 'adminParkingsDelete',
     ]]
 );
+
+Route::get('/admin/parkings/refresh/{id}', [
+    'as' => 'adminParkingsRefresh',
+    'uses' => 'Admin\ParkingController@refresh'
+]);

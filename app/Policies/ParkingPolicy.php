@@ -68,4 +68,9 @@ class ParkingPolicy
     {
         return false;
     }
+
+    public function refresh(User $user)
+    {
+        return false;
+    }
 }

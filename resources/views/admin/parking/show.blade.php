@@ -11,6 +11,7 @@
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Supprimer</button>
                 </form>
+                <div class="col-auto"><a href="{{ route('adminParkingsRefresh', $parking->id) }}" class="btn btn-info">Rafraichir les places en attentes</a></div>
             </div>
         </div>
         <div class="mt-2">

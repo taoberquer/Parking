@@ -46,4 +46,24 @@ class Parking extends Model
         $userPlaces = Places::where('user_id', '=', $id)->pluck('parking_id')->toArray();
         return Parking::find($userPlaces);
     }
+
+
+    public static function refreshPlaces($parkingId)
+    {
+        $userIds = Places::where('parking_id', '=', $parkingId)
+            ->orderBy('created_at', 'desc')
+            ->get()->unique('user_id')
+            ->where('status', '=', 'waiting')
+            ->pluck('user_id')
+            ->toArray();
+
+        $parking = Parking::find($parkingId);
+
+        foreach ($userIds as $userId) {
+            Places::assignPlace([
+                'parking_id' => $parkingId,
+                'user_id' => $userId,
+            ]);
+        }
+    }
 }
