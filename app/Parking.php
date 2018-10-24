@@ -22,8 +22,10 @@ class Parking extends Model
 
     public function getPlacesAndWaiting()
     {
-        return $this->hasMany('App\Places')
-            ->where('created_at', '>=', date('Y-m-d H:i:s', time() - $this->using_time));
+        return Places::where('parking_id', '=', $this->id)
+            ->orderBy('created_at', 'desc')
+            ->get()->unique('user_id')
+            ->where('status', '<>', 'abandoned');
     }
 
     public function getCountPlaces()

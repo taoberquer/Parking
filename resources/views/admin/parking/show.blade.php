@@ -30,7 +30,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($parking->getPlacesAndWaiting as $place)
+            @foreach($parking->getPlacesAndWaiting() as $place)
             <tr>
                 <th scope="row">{{ $place->id }}</th>
                 <td>{{ $place->getPlaceNumber($parking->using_time) }}</td>
